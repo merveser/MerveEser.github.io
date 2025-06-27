@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merve Eser - Data Scientist</title>
+    <title>Merve Eser - Resume</title>
     <style>
         * {
             margin: 0;
@@ -12,15 +12,16 @@
         }
 
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-bg: #f8f9fa;
-            --dark-bg: #2c3e50;
-            --text-dark: #2c3e50;
-            --text-light: #6c757d;
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --accent-blue: #60a5fa;
+            --dark-navy: #0f172a;
+            --light-blue: #dbeafe;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
             --white: #ffffff;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --light-gray: #f8fafc;
+            --border-color: #e5e7eb;
         }
 
         body {
@@ -30,18 +31,20 @@
             background: var(--white);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .resume-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
         }
 
-        /* Header */
+        /* Header Section */
         .header {
-            background: var(--gradient);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
             color: white;
-            padding: 80px 0;
-            text-align: center;
+            padding: 50px 40px;
             position: relative;
             overflow: hidden;
         }
@@ -49,12 +52,12 @@
         .header::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
         }
 
         .header-content {
@@ -62,330 +65,24 @@
             z-index: 2;
         }
 
-        .header h1 {
-            font-size: 3.5rem;
+        .name {
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        .header .subtitle {
+        .title {
             font-size: 1.3rem;
-            margin-bottom: 2rem;
+            margin-bottom: 25px;
             opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .tech-stack {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .tech-badge {
-            background: rgba(255,255,255,0.2);
-            padding: 8px 16px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(255,255,255,0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        /* Navigation */
-        .nav {
-            background: var(--white);
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-        }
-
-        .nav a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
-            padding: 10px 20px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .nav a:hover {
-            background: var(--secondary-color);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Sections */
-        .section {
-            padding: 60px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: var(--primary-color);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            width: 60px;
-            height: 4px;
-            background: var(--gradient);
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--light-bg);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-info h3 {
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
-
-        .about-info p {
-            margin-bottom: 20px;
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        .experience-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-            border-left: 4px solid var(--secondary-color);
-        }
-
-        .experience-card h4 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-
-        .experience-card .duration {
-            color: var(--accent-color);
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-
-        .experience-card ul {
-            color: var(--text-light);
-            padding-left: 20px;
-        }
-
-        .experience-card li {
-            margin-bottom: 8px;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .project-header {
-            background: var(--gradient);
-            color: white;
-            padding: 25px;
-            position: relative;
-        }
-
-        .project-header h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
-
-        .project-date {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .project-content {
-            padding: 25px;
-        }
-
-        .project-content p {
-            color: var(--text-light);
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
-        .tech-tag {
-            background: var(--light-bg);
-            color: var(--text-dark);
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .project-metrics {
-            background: var(--light-bg);
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .project-metrics h5 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-        }
-
-        .project-metrics ul {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            padding-left: 15px;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-align: center;
-            cursor: pointer;
-            border: none;
-            font-size: 0.9rem;
-        }
-
-        .btn-primary {
-            background: var(--secondary-color);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--secondary-color);
-            border: 2px solid var(--secondary-color);
-        }
-
-        .btn-outline:hover {
-            background: var(--secondary-color);
-            color: white;
-        }
-
-        /* Skills Section */
-        .skills {
-            background: var(--light-bg);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .skill-category {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .skill-category h4 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .skill-item {
-            background: var(--gradient);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--dark-bg);
-            color: white;
-            text-align: center;
-        }
-
-        .contact .section-title {
-            color: white;
-        }
-
-        .contact .section-title::after {
-            background: var(--accent-color);
+            font-weight: 300;
         }
 
         .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
             margin-top: 30px;
         }
 
@@ -393,326 +90,642 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .contact-item i {
+            width: 20px;
+            text-align: center;
+            opacity: 0.8;
         }
 
         .contact-item a {
             color: white;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: opacity 0.3s ease;
         }
 
         .contact-item a:hover {
-            color: var(--secondary-color);
+            opacity: 0.8;
         }
 
-        /* Responsive */
+        /* Main Content */
+        .content {
+            padding: 0;
+        }
+
+        .section {
+            padding: 40px 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary-blue), var(--accent-blue));
+            border-radius: 2px;
+        }
+
+        /* Professional Summary */
+        .summary {
+            background: var(--light-gray);
+        }
+
+        .summary p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        /* Technical Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: var(--light-blue);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid var(--secondary-blue);
+        }
+
+        .skill-category h4 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: white;
+            color: var(--primary-blue);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid var(--accent-blue);
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 35px;
+            padding-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .duration {
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .experience-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .experience-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-blue);
+            font-weight: bold;
+        }
+
+        /* Education Section */
+        .education {
+            background: var(--light-gray);
+        }
+
+        .education-item {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--secondary-blue);
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .degree {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+        }
+
+        .university {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .education-duration {
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* Projects Section */
+        .project-item {
+            background: var(--light-gray);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--secondary-blue);
+        }
+
+        .project-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+        }
+
+        .project-tech {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .project-description {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--secondary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Certifications */
+        .certifications {
+            background: var(--light-gray);
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-top: 3px solid var(--secondary-blue);
+        }
+
+        .cert-title {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .cert-org {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .cert-year {
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* Core Competencies */
+        .competencies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .competency-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: var(--light-blue);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .competency-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .competency-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--secondary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .competency-text {
+            color: var(--primary-blue);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .header h1 {
+            .resume-container {
+                margin: 20px;
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 40px 30px;
+            }
+
+            .name {
                 font-size: 2.5rem;
             }
-            
-            .about-content {
-                grid-template-columns: 1fr;
+
+            .section {
+                padding: 30px 25px;
             }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav-container {
+
+            .experience-header {
                 flex-direction: column;
+                align-items: flex-start;
                 gap: 10px;
             }
-            
+
             .contact-info {
-                flex-direction: column;
-                gap: 20px;
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid,
+            .competencies-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            .resume-container {
+                box-shadow: none;
+                margin: 0;
+            }
+            
+            .header {
+                background: var(--primary-blue) !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <section class="header">
-        <div class="container">
+    <div class="resume-container">
+        <!-- Header -->
+        <div class="header">
             <div class="header-content">
-                <h1>Merve Eser</h1>
-                <p class="subtitle">SQL, Python, ve veri görselleştirme araçları kullanarak daha akıllı kararlar için netlik ve içgörü sağlıyorum</p>
-                <div class="tech-stack">
-                    <span class="tech-badge">Python</span>
-                    <span class="tech-badge">SQL</span>
-                    <span class="tech-badge">Tableau</span>
-                    <span class="tech-badge">Machine Learning</span>
-                    <span class="tech-badge">Data Analysis</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container">
-            <div class="nav-container">
-                <a href="#about">Hakkımda</a>
-                <a href="#projects">Projeler</a>
-                <a href="#skills">Yetenekler</a>
-                <a href="#contact">İletişim</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <div class="container">
-            <h2 class="section-title">Hakkımda</h2>
-            <div class="about-content">
-                <div class="about-info">
-                    <h3>Kim Olduğum ve Ne Yaptığım</h3>
-                    <p>Hacettepe Üniversitesi Matematik mezunu olarak veri bilimi, analitik ve problem çözme konularında tutkulu bir profesyonelim.</p>
-                    <p>Erasmus+ programı kapsamında Polonya'da geçirdiğim deneyim ve 9 aylık Trive stajım sayesinde gerçek dünya veri problemleri üzerinde çalışma fırsatı buldum.</p>
-                    <p>Akbank Data & ML Bootcamp'lerinde katıldığım projeler ve Harvard CS50 kursları ile teknik temelimi güçlendirmeye devam ediyorum.</p>
-                </div>
-                <div class="experience-section">
-                    <div class="experience-card">
-                        <h4>Data Analytics Intern - Trive</h4>
-                        <div class="duration">Temmuz 2024 – Mart 2025</div>
-                        <ul>
-                            <li>Büyük ölçekli finansal veri setleriyle günlük raporlama süreçlerini destekledim</li>
-                            <li>Python (Pandas, NumPy) ve SQL kullanarak veri temizleme ve hazırlama</li>
-                            <li>Tableau dashboard'ları ve veri görselleştirmeleri oluşturdum</li>
-                            <li>Yeni veri kaynakları tasarımında cross-functional takımlarla işbirliği</li>
-                        </ul>
+                <h1 class="name">MERVE ESER</h1>
+                <p class="title">Data Analysis | Business Intelligence | Data Science | Mathematics Graduate</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i>📧</i>
+                        <a href="mailto:merveserr1@gmail.com">merveserr1@gmail.com</a>
                     </div>
-                    <div class="experience-card">
-                        <h4>Hacettepe Üniversitesi - Matematik Lisans</h4>
-                        <div class="duration">2019 – 2025</div>
-                        <ul>
-                            <li>Erasmus+ programı - Politechnika Częstochowska (Ekim 2022 – Şubat 2023)</li>
-                            <li>Güçlü matematiksel temel ve analitik düşünce becerileri</li>
-                        </ul>
+                    <div class="contact-item">
+                        <i>📱</i>
+                        <span>+90 (530) 860 25 84</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>📍</i>
+                        <span>Ankara, Turkey</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>💼</i>
+                        <a href="https://linkedin.com/in/merveser" target="_blank">linkedin.com/in/merveser</a>
+                    </div>
+                    <div class="contact-item">
+                        <i>🔗</i>
+                        <a href="https://github.com/merveser" target="_blank">github.com/merveser</a>
+                    </div>
+                    <div class="contact-item">
+                        <i>🌐</i>
+                        <a href="https://merveser.github.io" target="_blank">merveser.github.io</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Projeler</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Boston Housing Regression</h3>
-                        <div class="project-date">7 Haziran 2024</div>
-                    </div>
-                    <div class="project-content">
-                        <p>Linear regression ve gradient descent kullanarak Boston konut fiyatlarını tahmin eden model. Sıfırdan gradient descent implementasyonu ile model optimizasyonu.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">NumPy</span>
-                            <span class="tech-tag">Matplotlib</span>
-                            <span class="tech-tag">Linear Regression</span>
-                        </div>
-                        <div class="project-metrics">
-                            <h5>🎯 Başarı Metrikleri:</h5>
-                            <ul>
-                                <li>Model performansı: MSE ve RMSE değerlendirmesi</li>
-                                <li>Gradient descent optimizasyonu uygulandı</li>
-                                <li>Konut fiyatlarını etkileyen faktörler analiz edildi</li>
-                            </ul>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-primary">Projeyi Gör</a>
-                            <a href="#" class="btn btn-outline">GitHub</a>
-                        </div>
-                    </div>
-                </div>
+        <div class="content">
+            <!-- Professional Summary -->
+            <div class="section summary">
+                <h2 class="section-title">Professional Summary</h2>
+                <p>Mathematics graduate with 9 months of full-time Business Intelligence experience at Trive Technology. Proven track record in designing financial dashboards, automating reports, and analyzing datasets for global markets. Skilled in SQL, Python, Tableau, and statistical analysis. Currently expanding expertise through Harvard CS50 Python certification and advanced data science projects. Seeking to leverage comprehensive data science expertise to drive business insights and strategic decision-making in a growth-oriented organization.</p>
+            </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Mushroom Classification</h3>
-                        <div class="project-date">5 Haziran 2024</div>
-                    </div>
-                    <div class="project-content">
-                        <p>Mantarların fiziksel özelliklerine göre yenilebilir olup olmadığını tahmin eden sınıflandırma modeli. Çoklu algoritma karşılaştırması yapıldı.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Scikit-learn</span>
-                            <span class="tech-tag">Decision Tree</span>
-                            <span class="tech-tag">Random Forest</span>
-                        </div>
-                        <div class="project-metrics">
-                            <h5>🎯 Başarı Metrikleri:</h5>
-                            <ul>
-                                <li>Accuracy, Precision, Recall değerlendirmesi</li>
-                                <li>3 farklı ML algoritması karşılaştırıldı</li>
-                                <li>Feature importance analizi yapıldı</li>
-                            </ul>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-primary">Projeyi Gör</a>
-                            <a href="#" class="btn btn-outline">GitHub</a>
+            <!-- Technical Skills -->
+            <div class="section">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Programming Languages</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">R</span>
+                            <span class="skill-tag">NumPy</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">Scikit-learn</span>
                         </div>
                     </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>IMDb Data Analysis</h3>
-                        <div class="project-date">19 Mayıs 2024</div>
-                    </div>
-                    <div class="project-content">
-                        <p>Akbank Data Analysis Bootcamp projesi. IMDb film verileri kullanarak film reytingleri, trendler ve izleyici tercihlerini analiz ettim.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Pandas</span>
-                            <span class="tech-tag">Matplotlib</span>
-                            <span class="tech-tag">Seaborn</span>
-                        </div>
-                        <div class="project-metrics">
-                            <h5>🎯 Başarı Metrikleri:</h5>
-                            <ul>
-                                <li>10,000+ film verisi analiz edildi</li>
-                                <li>Kapsamlı EDA ve veri temizleme</li>
-                                <li>Görselleştirme ile story telling</li>
-                            </ul>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-primary">Projeyi Gör</a>
-                            <a href="#" class="btn btn-outline">GitHub</a>
+                    <div class="skill-category">
+                        <h4>Data Visualization</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Tableau</span>
+                            <span class="skill-tag">Power BI</span>
+                            <span class="skill-tag">Matplotlib</span>
+                            <span class="skill-tag">Seaborn</span>
+                            <span class="skill-tag">Plotly</span>
                         </div>
                     </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Library Management System</h3>
-                        <div class="project-date">19 Şubat 2024</div>
+                    <div class="skill-category">
+                        <h4>Database Management</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">SQL Server</span>
+                            <span class="skill-tag">ETL Processes</span>
+                        </div>
                     </div>
-                    <div class="project-content">
-                        <p>Akbank ML Bootcamp projesi. Nesne yönelimli programlama ile geliştirilmiş Python CLI kütüphane yönetim sistemi.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">OOP</span>
-                            <span class="tech-tag">CLI</span>
-                            <span class="tech-tag">File Handling</span>
-                        </div>
-                        <div class="project-metrics">
-                            <h5>🎯 Başarı Metrikleri:</h5>
-                            <ul>
-                                <li>Tam fonksiyonel kütüphane sistemi</li>
-                                <li>Kitap ödünç alma/iade simülasyonu</li>
-                                <li>Clean code ve OOP prensipleri</li>
-                            </ul>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-primary">Projeyi Gör</a>
-                            <a href="#" class="btn btn-outline">GitHub</a>
+                    <div class="skill-category">
+                        <h4>Development & Analysis</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Jupyter</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Statistical Analysis</span>
+                            <span class="skill-tag">Machine Learning</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section skills">
-        <div class="container">
-            <h2 class="section-title">Teknik Yetenekler</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h4>Programlama</h4>
-                    <div class="skill-list">
-                        <span class="skill-item">Python</span>
-                        <span class="skill-item">SQL</span>
-                        <span class="skill-item">HTML/CSS</span>
-                        <span class="skill-item">Git</span>
+            <!-- Professional Experience -->
+            <div class="section">
+                <h2 class="section-title">Professional Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="job-title">Project Management Intern</div>
+                            <div class="company">SCA Social</div>
+                        </div>
+                        <div class="duration">June 2025 - July 2025</div>
+                    </div>
+                    <ul class="experience-list">
+                        <li>Completing intensive 5-week certification in project management, AI & Data Science, organizational development, and IT law</li>
+                        <li>Creating a comprehensive professional portfolio with four core deliverables: project charter, Gantt chart, organizational framework, and AI-based solution</li>
+                        <li>Integrating traditional and digital project management techniques into original project documentation</li>
+                        <li>Demonstrating applied skills in project execution and data-informed decision making through certification program</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="job-title">Business Intelligence Intern → Analyst</div>
+                            <div class="company">Trive Technology</div>
+                        </div>
+                        <div class="duration">July 2024 - March 2025</div>
+                    </div>
+                    <ul class="experience-list">
+                        <li><strong>Designed, developed, and managed financial Tableau reports</strong> for global markets including Indonesia and Europe, ensuring high data accuracy and providing actionable insights for strategic decision-making</li>
+                        <li><strong>Created, managed, and optimized data sources</strong> using Tableau Prep to streamline reporting processes and maintain data consistency across platforms</li>
+                        <li><strong>Automated manually run reports</strong> to enhance process efficiency and operational speed, reducing turnaround time for critical data deliverables by 40%</li>
+                        <li><strong>Leveraged Python libraries</strong> (NumPy, pandas, matplotlib) and SQL for data cleaning, analysis, and visualization, contributing to improved reporting accuracy</li>
+                        <li><strong>Collaborated with cross-functional teams</strong> to translate business requirements into effective, data-driven solutions that support organizational goals</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="section education">
+                <h2 class="section-title">Education</h2>
+                
+                <div class="education-item">
+                    <div class="degree">Bachelor of Science in Mathematics</div>
+                    <div class="university">Hacettepe University</div>
+                    <span class="education-duration">September 2019 - January 2025</span>
+                </div>
+                
+                <div class="education-item">
+                    <div class="degree">Exchange Program (Erasmus+)</div>
+                    <div class="university">Politechnika Częstochowska, Poland</div>
+                    <span class="education-duration">October 2022 - February 2023</span>
+                </div>
+            </div>
+
+            <!-- Key Projects -->
+            <div class="section">
+                <h2 class="section-title">Key Projects</h2>
+                
+                <div class="project-item">
+                    <div class="project-title">IMDb Movie Recommendation System | Harvard CS50 Python Final Project</div>
+                    <div class="project-tech"><strong>Technologies:</strong> Python, Scikit-learn, Pandas, TF-IDF, Cosine Similarity</div>
+                    <div class="project-description">
+                        Built comprehensive movie recommendation system analyzing IMDb Top 1000 movies dataset. Implemented content-based filtering using TF-IDF vectorization for genre, cast, director, and plot similarities. Created interactive menu system with multiple recommendation approaches and developed data visualization features showing genre distributions and rating patterns.
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h4>Veri Analizi</h4>
-                    <div class="skill-list">
-                        <span class="skill-item">Pandas</span>
-                        <span class="skill-item">NumPy</span>
-                        <span class="skill-item">Matplotlib</span>
-                        <span class="skill-item">Seaborn</span>
+
+                <div class="project-item">
+                    <div class="project-title">UK Traffic Accident Analysis | Personal Data Science Project</div>
+                    <div class="project-tech"><strong>Technologies:</strong> Python, Pandas, Seaborn, Matplotlib, ARIMA Time Series Modeling</div>
+                    <div class="project-description">
+                        Analyzed 1.6+ million UK traffic accident records to uncover patterns and identify risk factors. Performed comprehensive statistical analysis comparing urban vs rural accident patterns and implemented ARIMA forecasting model to predict future accident trends. Created data visualizations revealing weekly accident patterns and vehicle involvement distributions.
+                    </div>
+                    <a href="https://github.com/merveser/uk-traffic-analysis" class="project-link" target="_blank">
+                        🔗 GitHub Repository
+                    </a>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">Airline Passenger Satisfaction Analysis</div>
+                    <div class="project-tech"><strong>Technologies:</strong> Python, Pandas, NumPy, Matplotlib, Seaborn, Statistical Analysis</div>
+                    <div class="project-description">
+                        Conducted comprehensive analysis of 130K+ passenger satisfaction survey responses. Performed demographic analysis, service quality assessment, and correlation analysis between satisfaction factors. Identified key satisfaction drivers including online boarding, seat comfort, and inflight entertainment, developing strategic recommendations for service improvements.
+                    </div>
+                    <a href="https://github.com/merveser/airline-satisfaction" class="project-link" target="_blank">
+                        🔗 GitHub Repository
+                    </a>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="section certifications">
+                <h2 class="section-title">Certifications</h2>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <div class="cert-title">Harvard CS50 Introduction to Python</div>
+                        <div class="cert-org">Harvard University</div>
+                        <span class="cert-year">2025</span>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">Data Analysis Bootcamp</div>
+                        <div class="cert-org">Patika.dev x KızBaşına</div>
+                        <span class="cert-year">2025</span>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">Machine Learning Bootcamp</div>
+                        <div class="cert-org">Akbank</div>
+                        <span class="cert-year">2024</span>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">Data Analysis Bootcamp</div>
+                        <div class="cert-org">Akbank</div>
+                        <span class="cert-year">2024</span>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">Python for Data Science, AI & Development</div>
+                        <div class="cert-org">IBM</div>
+                        <span class="cert-year">2024</span>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">Intermediate SQL</div>
+                        <div class="cert-org">DataCamp</div>
+                        <span class="cert-year">2024</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h4>Machine Learning</h4>
-                    <div class="skill-list">
-                        <span class="skill-item">Scikit-learn</span>
-                        <span class="skill-item">Linear Regression</span>
-                        <span class="skill-item">Classification</span>
-                        <span class="skill-item">Model Evaluation</span>
+            </div>
+
+            <!-- Core Competencies -->
+            <div class="section">
+                <h2 class="section-title">Core Competencies</h2>
+                <div class="competencies-grid">
+                    <div class="competency-item">
+                        <div class="competency-icon">📊</div>
+                        <div class="competency-text">Business Intelligence & Dashboard Development</div>
                     </div>
-                </div>
-                <div class="skill-category">
-                    <h4>Araçlar & Platformlar</h4>
-                    <div class="skill-list">
-                        <span class="skill-item">Tableau</span>
-                        <span class="skill-item">Tableau Prep</span>
-                        <span class="skill-item">Jupyter</span>
-                        <span class="skill-item">GitHub</span>
+                    <div class="competency-item">
+                        <div class="competency-icon">🔍</div>
+                        <div class="competency-text">Statistical Modeling & Trend Analysis</div>
+                    </div>
+                    <div class="competency-item">
+                        <div class="competency-icon">⚡</div>
+                        <div class="competency-text">Process Automation & Optimization</div>
+                    </div>
+                    <div class="competency-item">
+                        <div class="competency-icon">🎯</div>
+                        <div class="competency-text">Data-Driven Decision Making</div>
+                    </div>
+                    <div class="competency-item">
+                        <div class="competency-icon">🤝</div>
+                        <div class="competency-text">Cross-Team Collaboration</div>
+                    </div>
+                    <div class="competency-item">
+                        <div class="competency-text">Technical Documentation & Presentations</div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2 class="section-title">İletişim</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 30px;">Yeni fırsatlar, işbirlikleri ve sohbetler için her zaman açığım!</p>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <span>📧</span>
-                    <a href="mailto:merve16107@gmail.com">merve16107@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <span>📍</span>
-                    <span>Çankaya, Ankara / Türkiye</span>
-                </div>
-                <div class="contact-item">
-                    <span>💼</span>
-                    <a href="#">LinkedIn</a>
-                </div>
-                <div class="contact-item">
-                    <span>🔗</span>
-                    <a href="#">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect to navigation
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(255, 255, 255, 0.95)';
-                nav.style.backdropFilter = 'blur(10px)';
-            } else {
-                nav.style.background = 'var(--white)';
-                nav.style.backdropFilter = 'none';
-            }
-        });
-    </script>
+    </div>
 </body>
 </html>
