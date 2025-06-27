@@ -1,172 +1,718 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merve Eser - Data Scientist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<html>
-	<head>
-		<title>Merve Eser Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-bg: #f8f9fa;
+            --dark-bg: #2c3e50;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+        }
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>Merve Eser Portfolio<br />
-						</h1>
-						<p>Using SQL, Python, and data visualization tools to drive smarter decisions through clarity and insight.<p>
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo">Merve Eser</a>
-					</header>
+        /* Header */
+        .header {
+            background: var(--gradient);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="index.html">About Me</a></li>
-							<li><a href="generic.html">Projects</a></li>
-							
-						</ul>
-						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/merve-eser-457a4326a/" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
-							<li><a href="https://github.com/merveser" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</nav>
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
 
-				<!-- Main -->
-					<div id="main">
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
 
-						<!-- Featured Post -->
-							<article class="post featured">
-								<header class="major">
-									<span class="date"></span>
-									<h2><a href="#">Who I Am & What I Do</a></h2>
-									<p>
-    Hello! I'm a Mathematics graduate from Hacettepe University with a strong passion for data science, AI, and solving real-world problems using data. My academic background, combined with hands-on experience, has fueled my goal of turning raw data into impactful insights.
-</p>
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
 
-<p>
-    I completed a 9-month internship at <strong>Trive</strong> in the Data Analytics team, where I worked on large datasets to build data pipelines, clean data, perform analysis, and create interactive dashboards. I collaborated on data modeling processes using tools such as <strong>SQL</strong>, <strong>Python</strong> (pandas, NumPy, matplotlib), and <strong>Tableau</strong>. This role taught me how to support decision-making with data in fast-paced business environments.
-</p>
+        .header .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-<p>
-    Currently, I'm participating in the <strong>Data Analytics Bootcamp</strong> jointly organized by <strong>Patika.dev</strong> and the <strong>Kız Başına</strong> platform. Here, I’m expanding my skills through intensive hands-on projects and industry-focused mentorship, sharpening both my technical and analytical thinking abilities.
-</p>
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
 
-<p>
-    I also took part in <strong>Akbank’s Data Analysis</strong> and <strong>Machine Learning Bootcamps</strong>. I explored data visualization and preprocessing through an IMDb Movie dataset, and built a <strong>Python CLI Library Management System</strong> using object-oriented programming. These projects improved my development and problem-solving approach in Python.
-</p>
+        .tech-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+        }
 
-<p>
-    To deepen my AI knowledge, I’ve completed the <strong>“Natural Language Processing”</strong> training by <strong>Turkcell Geleceği Yazanlar</strong>, and I’m currently enrolled in <strong> CS50’s Introduction to Programming with Python</strong> course. I’m learning about search algorithms, adversarial games, machine learning, and neural networks. Recently, I developed a <strong>Boston Housing Price Prediction</strong> model using linear regression and gradient descent.
-</p>
+        /* Navigation */
+        .nav {
+            background: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-<p>
-    I also participated in the Erasmus+ program at <strong>Politechnika Częstochowska</strong> in Poland, which helped me grow both personally and professionally. It improved my communication, adaptability, and cross-cultural collaboration skills — qualities I value deeply in international teams.
-</p>
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
 
-<p>
-    I’m a highly motivated and growth-oriented individual, always exploring new ways to enhance my skills. I actively use tools such as <strong>Jupyter</strong>, <strong>GitHub Copilot</strong>, <strong>ChatGPT</strong>, and <strong>Kaggle</strong> to experiment and build. I'm particularly interested in the intersection of data science and generative AI, and I’m eager to work with new technologies like <strong>LangChain</strong> and <strong>LLMs</strong> to create intelligent systems.
-</p>
+        .nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
 
-<p>
-    My goal is to contribute to a forward-thinking data team where I can apply my technical skills, curiosity, and passion for learning to meaningful projects. I’m excited about creating value through data and being part of an innovative, impact-driven environment.
-</p>
+        .nav a:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
 
-								</header>
-								
-							
-								</ul>
-							</article>
+        /* Sections */
+        .section {
+            padding: 60px 0;
+        }
 
-							<section>
-								<header class="major">
-									<h2>Education & Experience</h2>
-								</header>
-								<div class="posts">
-							
-									<article>
-										<h3>🎓 Education</h3>
-										<ul>
-											<li><strong>Hacettepe University</strong> – B.Sc. in Mathematics<br><em>2019 – 2025</em></li>
-											<li><strong>Politechnika Częstochowska (Erasmus+)</strong><br><em>October 2022 – February 2023</em></li>
-											<li><strong>Akbank Data & ML Bootcamps</strong><br><em>2024</em><br>
-												<ul>
-													<li>IMDb Movie Data Analysis</li>
-													<li>Library Management System (OOP, Python)</li>
-												</ul>
-											</li>
-											<li><strong>Harvard CS50 Python</strong> – Ongoing</li>
-										</ul>
-									</article>
-							
-									<article>
-										<h3>💼 Experience</h3>
-										<ul>
-											<li><strong>Data Analytics Intern – Trive</strong><br><em>July 2024 – March 2025</em>
-												<ul>
-													<li>Worked with large-scale financial datasets to support daily reporting and decision-making processes.</li>
-													<li>Cleaned and prepared data using Python (Pandas, NumPy) and SQL for accurate and efficient analysis.</li>
-													<li>Built Tableau dashboards and data visualizations to monitor key metrics and identify trends.</li>
-													<li>Collaborated with cross-functional teams to design new data sources and participate in data modeling pipelines.</li>
-													<li>Gained hands-on experience with tools like Tableau Prep and contributed to automating manual reporting flows.</li>
-												</ul>
-											</li>
-											
-										</ul>
-									</article>
-							
-								</div>
-							</section>
-							
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            position: relative;
+        }
 
-						
-						<section class="split contact">
-							<section class="alt">
-								<h3>Address</h3>
-								<p>Çankaya, Ankara </b>
-								/Türkiye</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="#">+905308602584</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">merve16107@gmail.com</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="https://www.linkedin.com/in/merve-eser-457a4326a/" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
-									<li><a href="https://github.com/merveser" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
 
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div>
+        /* About Section */
+        .about {
+            background: var(--light-bg);
+        }
 
-			</div>
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+        .about-info h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
 
-	</body>
+        .about-info p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .experience-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .experience-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .experience-card .duration {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .experience-card ul {
+            color: var(--text-light);
+            padding-left: 20px;
+        }
+
+        .experience-card li {
+            margin-bottom: 8px;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .project-header {
+            background: var(--gradient);
+            color: white;
+            padding: 25px;
+            position: relative;
+        }
+
+        .project-header h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .project-date {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: var(--light-bg);
+            color: var(--text-dark);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-metrics {
+            background: var(--light-bg);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .project-metrics h5 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .project-metrics ul {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            padding-left: 15px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--secondary-color);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: var(--light-bg);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .skill-item {
+            background: var(--gradient);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--dark-bg);
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact .section-title::after {
+            background: var(--accent-color);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <section class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1>Merve Eser</h1>
+                <p class="subtitle">SQL, Python, ve veri görselleştirme araçları kullanarak daha akıllı kararlar için netlik ve içgörü sağlıyorum</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">SQL</span>
+                    <span class="tech-badge">Tableau</span>
+                    <span class="tech-badge">Machine Learning</span>
+                    <span class="tech-badge">Data Analysis</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#about">Hakkımda</a>
+                <a href="#projects">Projeler</a>
+                <a href="#skills">Yetenekler</a>
+                <a href="#contact">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title">Hakkımda</h2>
+            <div class="about-content">
+                <div class="about-info">
+                    <h3>Kim Olduğum ve Ne Yaptığım</h3>
+                    <p>Hacettepe Üniversitesi Matematik mezunu olarak veri bilimi, analitik ve problem çözme konularında tutkulu bir profesyonelim.</p>
+                    <p>Erasmus+ programı kapsamında Polonya'da geçirdiğim deneyim ve 9 aylık Trive stajım sayesinde gerçek dünya veri problemleri üzerinde çalışma fırsatı buldum.</p>
+                    <p>Akbank Data & ML Bootcamp'lerinde katıldığım projeler ve Harvard CS50 kursları ile teknik temelimi güçlendirmeye devam ediyorum.</p>
+                </div>
+                <div class="experience-section">
+                    <div class="experience-card">
+                        <h4>Data Analytics Intern - Trive</h4>
+                        <div class="duration">Temmuz 2024 – Mart 2025</div>
+                        <ul>
+                            <li>Büyük ölçekli finansal veri setleriyle günlük raporlama süreçlerini destekledim</li>
+                            <li>Python (Pandas, NumPy) ve SQL kullanarak veri temizleme ve hazırlama</li>
+                            <li>Tableau dashboard'ları ve veri görselleştirmeleri oluşturdum</li>
+                            <li>Yeni veri kaynakları tasarımında cross-functional takımlarla işbirliği</li>
+                        </ul>
+                    </div>
+                    <div class="experience-card">
+                        <h4>Hacettepe Üniversitesi - Matematik Lisans</h4>
+                        <div class="duration">2019 – 2025</div>
+                        <ul>
+                            <li>Erasmus+ programı - Politechnika Częstochowska (Ekim 2022 – Şubat 2023)</li>
+                            <li>Güçlü matematiksel temel ve analitik düşünce becerileri</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Projeler</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Boston Housing Regression</h3>
+                        <div class="project-date">7 Haziran 2024</div>
+                    </div>
+                    <div class="project-content">
+                        <p>Linear regression ve gradient descent kullanarak Boston konut fiyatlarını tahmin eden model. Sıfırdan gradient descent implementasyonu ile model optimizasyonu.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">NumPy</span>
+                            <span class="tech-tag">Matplotlib</span>
+                            <span class="tech-tag">Linear Regression</span>
+                        </div>
+                        <div class="project-metrics">
+                            <h5>🎯 Başarı Metrikleri:</h5>
+                            <ul>
+                                <li>Model performansı: MSE ve RMSE değerlendirmesi</li>
+                                <li>Gradient descent optimizasyonu uygulandı</li>
+                                <li>Konut fiyatlarını etkileyen faktörler analiz edildi</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">Projeyi Gör</a>
+                            <a href="#" class="btn btn-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Mushroom Classification</h3>
+                        <div class="project-date">5 Haziran 2024</div>
+                    </div>
+                    <div class="project-content">
+                        <p>Mantarların fiziksel özelliklerine göre yenilebilir olup olmadığını tahmin eden sınıflandırma modeli. Çoklu algoritma karşılaştırması yapıldı.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Decision Tree</span>
+                            <span class="tech-tag">Random Forest</span>
+                        </div>
+                        <div class="project-metrics">
+                            <h5>🎯 Başarı Metrikleri:</h5>
+                            <ul>
+                                <li>Accuracy, Precision, Recall değerlendirmesi</li>
+                                <li>3 farklı ML algoritması karşılaştırıldı</li>
+                                <li>Feature importance analizi yapıldı</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">Projeyi Gör</a>
+                            <a href="#" class="btn btn-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>IMDb Data Analysis</h3>
+                        <div class="project-date">19 Mayıs 2024</div>
+                    </div>
+                    <div class="project-content">
+                        <p>Akbank Data Analysis Bootcamp projesi. IMDb film verileri kullanarak film reytingleri, trendler ve izleyici tercihlerini analiz ettim.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Matplotlib</span>
+                            <span class="tech-tag">Seaborn</span>
+                        </div>
+                        <div class="project-metrics">
+                            <h5>🎯 Başarı Metrikleri:</h5>
+                            <ul>
+                                <li>10,000+ film verisi analiz edildi</li>
+                                <li>Kapsamlı EDA ve veri temizleme</li>
+                                <li>Görselleştirme ile story telling</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">Projeyi Gör</a>
+                            <a href="#" class="btn btn-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Library Management System</h3>
+                        <div class="project-date">19 Şubat 2024</div>
+                    </div>
+                    <div class="project-content">
+                        <p>Akbank ML Bootcamp projesi. Nesne yönelimli programlama ile geliştirilmiş Python CLI kütüphane yönetim sistemi.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">OOP</span>
+                            <span class="tech-tag">CLI</span>
+                            <span class="tech-tag">File Handling</span>
+                        </div>
+                        <div class="project-metrics">
+                            <h5>🎯 Başarı Metrikleri:</h5>
+                            <ul>
+                                <li>Tam fonksiyonel kütüphane sistemi</li>
+                                <li>Kitap ödünç alma/iade simülasyonu</li>
+                                <li>Clean code ve OOP prensipleri</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">Projeyi Gör</a>
+                            <a href="#" class="btn btn-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+        <div class="container">
+            <h2 class="section-title">Teknik Yetenekler</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Programlama</h4>
+                    <div class="skill-list">
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">SQL</span>
+                        <span class="skill-item">HTML/CSS</span>
+                        <span class="skill-item">Git</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Veri Analizi</h4>
+                    <div class="skill-list">
+                        <span class="skill-item">Pandas</span>
+                        <span class="skill-item">NumPy</span>
+                        <span class="skill-item">Matplotlib</span>
+                        <span class="skill-item">Seaborn</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Machine Learning</h4>
+                    <div class="skill-list">
+                        <span class="skill-item">Scikit-learn</span>
+                        <span class="skill-item">Linear Regression</span>
+                        <span class="skill-item">Classification</span>
+                        <span class="skill-item">Model Evaluation</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Araçlar & Platformlar</h4>
+                    <div class="skill-list">
+                        <span class="skill-item">Tableau</span>
+                        <span class="skill-item">Tableau Prep</span>
+                        <span class="skill-item">Jupyter</span>
+                        <span class="skill-item">GitHub</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">İletişim</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">Yeni fırsatlar, işbirlikleri ve sohbetler için her zaman açığım!</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:merve16107@gmail.com">merve16107@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Çankaya, Ankara / Türkiye</span>
+                </div>
+                <div class="contact-item">
+                    <span>💼</span>
+                    <a href="#">LinkedIn</a>
+                </div>
+                <div class="contact-item">
+                    <span>🔗</span>
+                    <a href="#">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.backdropFilter = 'blur(10px)';
+            } else {
+                nav.style.background = 'var(--white)';
+                nav.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
 </html>
