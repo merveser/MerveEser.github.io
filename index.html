@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merve Eser - Resume</title>
+    <title>Merve Eser - Data Scientist Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -12,720 +12,860 @@
         }
 
         :root {
-            --primary-blue: #1e3a8a;
-            --secondary-blue: #3b82f6;
-            --accent-blue: #60a5fa;
-            --dark-navy: #0f172a;
-            --light-blue: #dbeafe;
-            --text-dark: #1f2937;
-            --text-light: #6b7280;
-            --white: #ffffff;
-            --light-gray: #f8fafc;
-            --border-color: #e5e7eb;
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --dark-bg: #0a0e27;
+            --card-bg: rgba(255, 255, 255, 0.1);
+            --text-light: #ffffff;
+            --text-secondary: #b8c5d6;
+            --accent-color: #00f2fe;
+            --hover-glow: rgba(0, 242, 254, 0.3);
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
             line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--white);
+            overflow-x: hidden;
         }
 
-        .resume-container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: white;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            border-radius: 20px;
-            overflow: hidden;
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--dark-bg);
         }
 
-        /* Header Section */
-        .header {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
-            color: white;
-            padding: 50px 40px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
+        .floating-shapes {
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            transform: rotate(45deg);
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
         }
 
-        .header-content {
-            position: relative;
-            z-index: 2;
+        .shape {
+            position: absolute;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float-animation 20s infinite ease-in-out;
         }
 
-        .name {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        .shape:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
         }
 
-        .title {
-            font-size: 1.3rem;
-            margin-bottom: 25px;
-            opacity: 0.9;
-            font-weight: 300;
+        .shape:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 20%;
+            animation-delay: -5s;
         }
 
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        .shape:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            bottom: 20%;
+            left: 30%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float-animation {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-30px) rotate(90deg); }
+            50% { transform: translateY(-60px) rotate(180deg); }
+            75% { transform: translateY(-30px) rotate(270deg); }
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
             gap: 15px;
-            margin-top: 30px;
         }
 
-        .contact-item {
+        .nav-item {
+            padding: 10px 20px;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-item:hover {
+            background: var(--accent-gradient);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px var(--hover-glow);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 0.95rem;
-        }
-
-        .contact-item i {
-            width: 20px;
+            justify-content: center;
             text-align: center;
-            opacity: 0.8;
+            position: relative;
         }
 
-        .contact-item a {
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            text-shadow: 0 0 50px rgba(102, 126, 234, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out 0.5s forwards;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out 1s forwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--accent-gradient);
             color: white;
             text-decoration: none;
-            transition: opacity 0.3s ease;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out 1.5s forwards;
+            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.3);
         }
 
-        .contact-item a:hover {
-            opacity: 0.8;
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 242, 254, 0.4);
         }
 
-        /* Main Content */
-        .content {
-            padding: 0;
+        /* Floating Data Visualization */
+        .data-viz {
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 300px;
+            height: 200px;
+            opacity: 0.7;
+            animation: float-viz 6s ease-in-out infinite;
         }
 
+        .chart-bars {
+            display: flex;
+            align-items: end;
+            height: 100%;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .bar {
+            width: 20px;
+            background: var(--accent-gradient);
+            border-radius: 4px;
+            animation: bar-grow 2s ease-out infinite;
+        }
+
+        .bar:nth-child(1) { height: 40%; animation-delay: 0s; }
+        .bar:nth-child(2) { height: 70%; animation-delay: 0.2s; }
+        .bar:nth-child(3) { height: 90%; animation-delay: 0.4s; }
+        .bar:nth-child(4) { height: 60%; animation-delay: 0.6s; }
+        .bar:nth-child(5) { height: 80%; animation-delay: 0.8s; }
+
+        @keyframes float-viz {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes bar-grow {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(1.2); }
+        }
+
+        /* Section Styling */
         .section {
-            padding: 40px 40px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .section:last-child {
-            border-bottom: none;
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .section-title {
-            font-size: 1.8rem;
-            color: var(--primary-blue);
-            margin-bottom: 30px;
-            position: relative;
-            font-weight: 600;
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--secondary-blue), var(--accent-blue));
-            border-radius: 2px;
-        }
-
-        /* Professional Summary */
-        .summary {
-            background: var(--light-gray);
-        }
-
-        .summary p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-light);
-            text-align: justify;
-        }
-
-        /* Technical Skills */
+        /* Skills Section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            gap: 30px;
+            margin-top: 40px;
         }
 
-        .skill-category {
-            background: var(--light-blue);
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 4px solid var(--secondary-blue);
+        .skill-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .skill-category h4 {
-            color: var(--primary-blue);
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 242, 254, 0.2);
+        }
+
+        .skill-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .skill-title {
+            font-size: 1.3rem;
             font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-light);
         }
 
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
         }
 
         .skill-tag {
-            background: white;
-            color: var(--primary-blue);
-            padding: 6px 12px;
-            border-radius: 20px;
+            padding: 5px 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
             font-size: 0.85rem;
-            font-weight: 500;
-            border: 1px solid var(--accent-blue);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-gradient);
+            transform: scale(1.05);
         }
 
         /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-gradient);
+            transform: translateX(-50%);
+        }
+
         .experience-item {
-            margin-bottom: 35px;
-            padding-bottom: 35px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .experience-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .experience-header {
+            position: relative;
+            margin-bottom: 60px;
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .experience-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .experience-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .experience-content {
+            width: 45%;
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .experience-content:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 242, 254, 0.2);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            border: 4px solid var(--dark-bg);
+            z-index: 10;
         }
 
         .job-title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 600;
-            color: var(--primary-blue);
-            margin-bottom: 5px;
-        }
-
-        .company {
-            font-size: 1.1rem;
             color: var(--text-light);
-            font-weight: 500;
-        }
-
-        .duration {
-            background: var(--light-blue);
-            color: var(--primary-blue);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-
-        .experience-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .experience-list li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 12px;
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-
-        .experience-list li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--secondary-blue);
-            font-weight: bold;
-        }
-
-        /* Education Section */
-        .education {
-            background: var(--light-gray);
-        }
-
-        .education-item {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--secondary-blue);
-        }
-
-        .education-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .degree {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--primary-blue);
-            margin-bottom: 8px;
-        }
-
-        .university {
-            color: var(--text-light);
-            font-size: 1rem;
             margin-bottom: 10px;
         }
 
-        .education-duration {
-            background: var(--light-blue);
-            color: var(--primary-blue);
-            padding: 5px 12px;
+        .company {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .duration {
+            background: var(--accent-gradient);
+            color: white;
+            padding: 5px 15px;
             border-radius: 15px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-size: 0.9rem;
+            font-weight: 500;
             display: inline-block;
+            margin-bottom: 15px;
         }
 
         /* Projects Section */
-        .project-item {
-            background: var(--light-gray);
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 25px;
-            border-left: 4px solid var(--secondary-blue);
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
         }
 
-        .project-item:last-child {
-            margin-bottom: 0;
+        .project-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--secondary-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(245, 87, 108, 0.3);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
         }
 
         .project-title {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 600;
-            color: var(--primary-blue);
-            margin-bottom: 8px;
+            margin-bottom: 15px;
+            color: var(--text-light);
         }
 
         .project-tech {
-            color: var(--text-light);
+            color: var(--accent-color);
             font-size: 0.9rem;
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
-
-        .project-description {
-            color: var(--text-light);
-            line-height: 1.7;
             margin-bottom: 15px;
         }
 
         .project-link {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            color: var(--secondary-blue);
+            gap: 8px;
+            color: var(--accent-color);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
+            margin-top: 15px;
+            transition: all 0.3s ease;
         }
 
         .project-link:hover {
-            color: var(--primary-blue);
+            transform: translateX(5px);
         }
 
-        /* Certifications */
-        .certifications {
-            background: var(--light-gray);
-        }
-
-        .cert-grid {
+        /* Contact Section */
+        .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            gap: 30px;
+            margin-top: 40px;
         }
 
-        .cert-item {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
+        .contact-item {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
             text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-            border-top: 3px solid var(--secondary-blue);
+            transition: all 0.3s ease;
         }
 
-        .cert-title {
-            font-weight: 600;
-            color: var(--primary-blue);
-            margin-bottom: 8px;
-            font-size: 1rem;
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 242, 254, 0.2);
         }
 
-        .cert-org {
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .contact-item a {
             color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 8px;
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
-        .cert-year {
-            background: var(--light-blue);
-            color: var(--primary-blue);
-            padding: 4px 10px;
-            border-radius: 10px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: inline-block;
+        .contact-item a:hover {
+            color: var(--accent-color);
         }
 
-        /* Core Competencies */
-        .competencies-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .competency-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 15px;
-            background: var(--light-blue);
-            border-radius: 10px;
-            transition: transform 0.3s ease;
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
         }
 
-        .competency-item:hover {
-            transform: translateY(-2px);
-        }
-
-        .competency-icon {
-            width: 20px;
-            height: 20px;
-            background: var(--secondary-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 0.8rem;
-            flex-shrink: 0;
-        }
-
-        .competency-text {
-            color: var(--primary-blue);
-            font-weight: 500;
-            font-size: 0.95rem;
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .resume-container {
-                margin: 20px;
-                border-radius: 15px;
+            .nav {
+                display: none;
             }
 
-            .header {
-                padding: 40px 30px;
+            .hero-title {
+                font-size: 3rem;
             }
 
-            .name {
-                font-size: 2.5rem;
+            .data-viz {
+                display: none;
+            }
+
+            .timeline-line {
+                left: 20px;
+            }
+
+            .experience-item {
+                flex-direction: column !important;
+                align-items: flex-start;
+            }
+
+            .experience-content {
+                width: 100%;
+                margin-left: 40px;
+            }
+
+            .timeline-dot {
+                left: 20px;
             }
 
             .section {
-                padding: 30px 25px;
-            }
-
-            .experience-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-            }
-
-            .contact-info {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-grid,
-            .competencies-grid {
-                grid-template-columns: 1fr;
+                padding: 60px 20px;
             }
         }
 
-        @media print {
-            .resume-container {
-                box-shadow: none;
-                margin: 0;
-            }
-            
-            .header {
-                background: var(--primary-blue) !important;
-                -webkit-print-color-adjust: exact;
-                color-adjust: exact;
-            }
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+
+        .scroll-progress {
+            height: 100%;
+            background: var(--accent-gradient);
+            width: 0%;
+            transition: width 0.3s ease;
         }
     </style>
 </head>
 <body>
-    <div class="resume-container">
-        <!-- Header -->
-        <div class="header">
-            <div class="header-content">
-                <h1 class="name">MERVE ESER</h1>
-                <p class="title">Data Analysis | Business Intelligence | Data Science | Mathematics Graduate</p>
-                
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i>📧</i>
-                        <a href="mailto:merveserr1@gmail.com">merveserr1@gmail.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <i>📱</i>
-                        <span>+90 (530) 860 25 84</span>
-                    </div>
-                    <div class="contact-item">
-                        <i>📍</i>
-                        <span>Ankara, Turkey</span>
-                    </div>
-                    <div class="contact-item">
-                        <i>💼</i>
-                        <a href="https://linkedin.com/in/merveser" target="_blank">linkedin.com/in/merveser</a>
-                    </div>
-                    <div class="contact-item">
-                        <i>🔗</i>
-                        <a href="https://github.com/merveser" target="_blank">github.com/merveser</a>
-                    </div>
-                    <div class="contact-item">
-                        <i>🌐</i>
-                        <a href="https://merveser.github.io" target="_blank">merveser.github.io</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
 
-        <div class="content">
-            <!-- Professional Summary -->
-            <div class="section summary">
-                <h2 class="section-title">Professional Summary</h2>
-                <p>Mathematics graduate with 9 months of full-time Business Intelligence experience at Trive Technology. Proven track record in designing financial dashboards, automating reports, and analyzing datasets for global markets. Skilled in SQL, Python, Tableau, and statistical analysis. Currently expanding expertise through Harvard CS50 Python certification and advanced data science projects. Seeking to leverage comprehensive data science expertise to drive business insights and strategic decision-making in a growth-oriented organization.</p>
-            </div>
-
-            <!-- Technical Skills -->
-            <div class="section">
-                <h2 class="section-title">Technical Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4>Programming Languages</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">SQL</span>
-                            <span class="skill-tag">R</span>
-                            <span class="skill-tag">NumPy</span>
-                            <span class="skill-tag">Pandas</span>
-                            <span class="skill-tag">Scikit-learn</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Data Visualization</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Tableau</span>
-                            <span class="skill-tag">Power BI</span>
-                            <span class="skill-tag">Matplotlib</span>
-                            <span class="skill-tag">Seaborn</span>
-                            <span class="skill-tag">Plotly</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Database Management</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">SQL Server</span>
-                            <span class="skill-tag">ETL Processes</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Development & Analysis</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Jupyter</span>
-                            <span class="skill-tag">VS Code</span>
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">Statistical Analysis</span>
-                            <span class="skill-tag">Machine Learning</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Professional Experience -->
-            <div class="section">
-                <h2 class="section-title">Professional Experience</h2>
-                
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <div class="job-title">Project Management Intern</div>
-                            <div class="company">SCA Social</div>
-                        </div>
-                        <div class="duration">June 2025 - July 2025</div>
-                    </div>
-                    <ul class="experience-list">
-                        <li>Completing intensive 5-week certification in project management, AI & Data Science, organizational development, and IT law</li>
-                        <li>Creating a comprehensive professional portfolio with four core deliverables: project charter, Gantt chart, organizational framework, and AI-based solution</li>
-                        <li>Integrating traditional and digital project management techniques into original project documentation</li>
-                        <li>Demonstrating applied skills in project execution and data-informed decision making through certification program</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <div class="job-title">Business Intelligence Intern → Analyst</div>
-                            <div class="company">Trive Technology</div>
-                        </div>
-                        <div class="duration">July 2024 - March 2025</div>
-                    </div>
-                    <ul class="experience-list">
-                        <li><strong>Designed, developed, and managed financial Tableau reports</strong> for global markets including Indonesia and Europe, ensuring high data accuracy and providing actionable insights for strategic decision-making</li>
-                        <li><strong>Created, managed, and optimized data sources</strong> using Tableau Prep to streamline reporting processes and maintain data consistency across platforms</li>
-                        <li><strong>Automated manually run reports</strong> to enhance process efficiency and operational speed, reducing turnaround time for critical data deliverables by 40%</li>
-                        <li><strong>Leveraged Python libraries</strong> (NumPy, pandas, matplotlib) and SQL for data cleaning, analysis, and visualization, contributing to improved reporting accuracy</li>
-                        <li><strong>Collaborated with cross-functional teams</strong> to translate business requirements into effective, data-driven solutions that support organizational goals</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Education -->
-            <div class="section education">
-                <h2 class="section-title">Education</h2>
-                
-                <div class="education-item">
-                    <div class="degree">Bachelor of Science in Mathematics</div>
-                    <div class="university">Hacettepe University</div>
-                    <span class="education-duration">September 2019 - January 2025</span>
-                </div>
-                
-                <div class="education-item">
-                    <div class="degree">Exchange Program (Erasmus+)</div>
-                    <div class="university">Politechnika Częstochowska, Poland</div>
-                    <span class="education-duration">October 2022 - February 2023</span>
-                </div>
-            </div>
-
-            <!-- Key Projects -->
-            <div class="section">
-                <h2 class="section-title">Key Projects</h2>
-                
-                <div class="project-item">
-                    <div class="project-title">IMDb Movie Recommendation System | Harvard CS50 Python Final Project</div>
-                    <div class="project-tech"><strong>Technologies:</strong> Python, Scikit-learn, Pandas, TF-IDF, Cosine Similarity</div>
-                    <div class="project-description">
-                        Built comprehensive movie recommendation system analyzing IMDb Top 1000 movies dataset. Implemented content-based filtering using TF-IDF vectorization for genre, cast, director, and plot similarities. Created interactive menu system with multiple recommendation approaches and developed data visualization features showing genre distributions and rating patterns.
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">UK Traffic Accident Analysis | Personal Data Science Project</div>
-                    <div class="project-tech"><strong>Technologies:</strong> Python, Pandas, Seaborn, Matplotlib, ARIMA Time Series Modeling</div>
-                    <div class="project-description">
-                        Analyzed 1.6+ million UK traffic accident records to uncover patterns and identify risk factors. Performed comprehensive statistical analysis comparing urban vs rural accident patterns and implemented ARIMA forecasting model to predict future accident trends. Created data visualizations revealing weekly accident patterns and vehicle involvement distributions.
-                    </div>
-                    <a href="https://github.com/merveser/uk-traffic-analysis" class="project-link" target="_blank">
-                        🔗 GitHub Repository
-                    </a>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">Airline Passenger Satisfaction Analysis</div>
-                    <div class="project-tech"><strong>Technologies:</strong> Python, Pandas, NumPy, Matplotlib, Seaborn, Statistical Analysis</div>
-                    <div class="project-description">
-                        Conducted comprehensive analysis of 130K+ passenger satisfaction survey responses. Performed demographic analysis, service quality assessment, and correlation analysis between satisfaction factors. Identified key satisfaction drivers including online boarding, seat comfort, and inflight entertainment, developing strategic recommendations for service improvements.
-                    </div>
-                    <a href="https://github.com/merveser/airline-satisfaction" class="project-link" target="_blank">
-                        🔗 GitHub Repository
-                    </a>
-                </div>
-            </div>
-
-            <!-- Certifications -->
-            <div class="section certifications">
-                <h2 class="section-title">Certifications</h2>
-                <div class="cert-grid">
-                    <div class="cert-item">
-                        <div class="cert-title">Harvard CS50 Introduction to Python</div>
-                        <div class="cert-org">Harvard University</div>
-                        <span class="cert-year">2025</span>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-title">Data Analysis Bootcamp</div>
-                        <div class="cert-org">Patika.dev x KızBaşına</div>
-                        <span class="cert-year">2025</span>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-title">Machine Learning Bootcamp</div>
-                        <div class="cert-org">Akbank</div>
-                        <span class="cert-year">2024</span>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-title">Data Analysis Bootcamp</div>
-                        <div class="cert-org">Akbank</div>
-                        <span class="cert-year">2024</span>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-title">Python for Data Science, AI & Development</div>
-                        <div class="cert-org">IBM</div>
-                        <span class="cert-year">2024</span>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-title">Intermediate SQL</div>
-                        <div class="cert-org">DataCamp</div>
-                        <span class="cert-year">2024</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Core Competencies -->
-            <div class="section">
-                <h2 class="section-title">Core Competencies</h2>
-                <div class="competencies-grid">
-                    <div class="competency-item">
-                        <div class="competency-icon">📊</div>
-                        <div class="competency-text">Business Intelligence & Dashboard Development</div>
-                    </div>
-                    <div class="competency-item">
-                        <div class="competency-icon">🔍</div>
-                        <div class="competency-text">Statistical Modeling & Trend Analysis</div>
-                    </div>
-                    <div class="competency-item">
-                        <div class="competency-icon">⚡</div>
-                        <div class="competency-text">Process Automation & Optimization</div>
-                    </div>
-                    <div class="competency-item">
-                        <div class="competency-icon">🎯</div>
-                        <div class="competency-text">Data-Driven Decision Making</div>
-                    </div>
-                    <div class="competency-item">
-                        <div class="competency-icon">🤝</div>
-                        <div class="competency-text">Cross-Team Collaboration</div>
-                    </div>
-                    <div class="competency-item">
-                        <div class="competency-text">Technical Documentation & Presentations</div>
-                    </div>
-                </div>
-            </div>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
         </div>
     </div>
-</body>
-</html>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#home" class="nav-item">Home</a>
+        <a href="#skills" class="nav-item">Skills</a>
+        <a href="#experience" class="nav-item">Experience</a>
+        <a href="#projects" class="nav-item">Projects</a>
+        <a href="#contact" class="nav-item">Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">MERVE ESER</h1>
+            <p class="hero-subtitle">Data Analysis | Business Intelligence | Data Science | Mathematics Graduate</p>
+            <p class="hero-description">
+                Mathematics graduate with 9 months of full-time Business Intelligence experience at Trive Technology. 
+                Proven track record in designing financial dashboards, automating reports, and analyzing datasets for 
+                global markets. Skilled in SQL, Python, Tableau, and statistical analysis, seeking to leverage data 
+                science expertise to drive business insights and strategic decision-making.
+            </p>
+            <a href="#contact" class="cta-button">Let's Connect</a>
+        </div>
+        
+        <!-- Floating Data Visualization -->
+        <div class="data-viz">
+            <div class="chart-bars">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2 class="section-title fade-in">Technical Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card fade-in">
+                <span class="skill-icon">🐍</span>
+                <h3 class="skill-title">Programming Languages</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">R</span>
+                    <span class="skill-tag">NumPy</span>
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">Matplotlib</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                </div>
+            </div>
+
+            <div class="skill-card fade-in">
+                <span class="skill-icon">📊</span>
+                <h3 class="skill-title">Data Visualization</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Tableau</span>
+                    <span class="skill-tag">Power BI</span>
+                    <span class="skill-tag">Matplotlib</span>
+                    <span class="skill-tag">Seaborn</span>
+                </div>
+            </div>
+
+            <div class="skill-card fade-in">
+                <span class="skill-icon">🗄️</span>
+                <h3 class="skill-title">Database Management</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">SQL Server</span>
+                    <span class="skill-tag">ETL Processes</span>
+                </div>
+            </div>
+
+            <div class="skill-card fade-in">
+                <span class="skill-icon">🤖</span>
+                <h3 class="skill-title">Statistical Analysis</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Regression Analysis</span>
+                    <span class="skill-tag">Classification</span>
+                    <span class="skill-tag">Clustering</span>
+                    <span class="skill-tag">Hypothesis Testing</span>
+                </div>
+            </div>
+
+            <div class="skill-card fade-in">
+                <span class="skill-icon">💼</span>
+                <h3 class="skill-title">Business Intelligence</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Dashboard Development</span>
+                    <span class="skill-tag">Data Modeling</span>
+                    <span class="skill-tag">KPI Tracking</span>
+                    <span class="skill-tag">Performance Analytics</span>
+                </div>
+            </div>
+
+            <div class="skill-card fade-in">
+                <span class="skill-icon">🔧</span>
+                <h3 class="skill-title">Development Tools</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Jupyter Notebook</span>
+                    <span class="skill-tag">VS Code</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Anaconda</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <h2 class="section-title fade-in">Professional Journey</h2>
+        <div class="experience-timeline">
+            <div class="timeline-line"></div>
+            
+            <div class="experience-item fade-in">
+                <div class="experience-content">
+                    <h3 class="job-title">Project Management Intern</h3>
+                    <p class="company">SCA Social</p>
+                    <span class="duration">June 2025 - July 2025</span>
+                    <p>Completing intensive 5-week certification in project management, AI & Data Science, organizational development, and IT law. Creating a professional portfolio with four core deliverables: project charter, Gantt chart, organizational framework, and AI-based solution. Integrating traditional and digital PM techniques into original project documentation.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="experience-item fade-in">
+                <div class="experience-content">
+                    <h3 class="job-title">Business Intelligence Intern → Analyst</h3>
+                    <p class="company">Trive Technology</p>
+                    <span class="duration">July 2024 - March 2025</span>
+                    <p>Designed, developed, and managed financial Tableau reports for global markets including Indonesia and Europe. Created and optimized data sources using Tableau Prep, automated manually run reports reducing turnaround time. Leveraged Python libraries (NumPy, pandas, matplotlib) and SQL for data cleaning, analysis, and visualization. Collaborated with cross-functional teams to translate business requirements into effective, data-driven solutions.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2 class="section-title fade-in">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <h3 class="project-title">🎬 IMDB Movie Recommendation System</h3>
+                <p class="project-tech">Python • Scikit-learn • Pandas • TF-IDF • Cosine Similarity</p>
+                <p>Harvard CS50 Python final project featuring comprehensive movie recommendation system analyzing IMDB Top 1000 movies dataset. Implemented content-based filtering using TF-IDF vectorization for genre, cast, director, and plot similarities. Created interactive menu system with multiple recommendation approaches and data visualization features showing genre distributions and rating patterns.</p>
+                <a href="https://github.com/merveser/imdb-recommendation" class="project-link">
+                    View Project →
+                </a>
+            </div>
+
+            <div class="project-card fade-in">
+                <h3 class="project-title">🚗 UK Traffic Accident Analysis</h3>
+                <p class="project-tech">Python • Pandas • Seaborn • Matplotlib • ARIMA Time Series</p>
+                <p>Analyzed 1.6+ million UK traffic accident records to uncover patterns and identify risk factors. Performed comprehensive statistical analysis comparing urban vs rural accident patterns and severity distributions. Implemented ARIMA forecasting model to predict future accident trends and seasonal peaks, creating visualizations revealing weekly patterns and vehicle involvement distributions.</p>
+                <a href="https://github.com/merveser/uk-traffic-analysis" class="project-link">
+                    View Project →
+                </a>
+            </div>
+
+            <div class="project-card fade-in">
+                <h3 class="project-title">✈️ Airline Passenger Satisfaction Analysis</h3>
+                <p class="project-tech">Python • Pandas • NumPy • Matplotlib • Seaborn • Statistical Analysis</p>
+                <p>Conducted comprehensive analysis of 130K+ passenger satisfaction survey responses. Performed demographic analysis, service quality assessment, and correlation analysis between satisfaction factors. Identified key satisfaction drivers including online boarding, seat comfort, and inflight entertainment. Developed strategic recommendations for service improvements based on statistical findings.</p>
+                <a href="https://github.com/merveser/airline-satisfaction" class="project-link">
+                    View Project →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2 class="section-title fade-in">Let's Connect</h2>
+        <div class="contact-grid">
+            <div class="contact-item fade-in">
+                <span class="contact-icon">📧</span>
+                <h3>Email</h3>
+                <a href="mailto:merveserr1@gmail.com">merveserr1@gmail.com</a>
+            </div>
+
+            <div class="contact-item fade-in">
+                <span class="contact-icon">💼</span>
+                <h3>LinkedIn</h3>
+                <a href="https://linkedin.com/in/merveser" target="_blank">linkedin.com/in/merveser</a>
+            </div>
+
+            <div class="contact-item fade-in">
+                <span class="contact-icon">🔗</span>
+                <h3>GitHub</h3>
+                <a href="https://github.com/merveser" target="_blank">github.com/merveser</a>
+            </div>
+
+            <div class="contact-item fade-in">
+                <span class="contact-icon">🌐</span>
+                <h3>Portfolio</h3>
+                <a href="https://merveser.github.io" target="_blank">merveser.github.io</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Dynamic typing effect for hero subtitle
+        const subtitle = document.querySelector('.hero-subtitle');
+        const roles = [
+            'Data Analysis | Business Intelligence | Data Science | Mathematics Graduate',
+            'Business Intelligence Analyst at Trive Technology',
+            'Python Developer & Statistical Analyst',
+            'Dashboard Development & Data Visualization Specialist'
+        ];
+        
+        let currentRole = 0;
+        let currentChar = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            const current = roles[currentRole];
+            
+            if (isDeleting) {
+                subtitle.textContent = current.substring(0, currentChar - 1);
+                currentChar--;
+            } else {
+                subtitle.textContent = current.substring(0, currentChar + 1);
+                currentChar++;
+            }
+
+            if (!isDeleting && currentChar === current.length) {
+                isDeleting = true;
+                setTimeout(typeEffect, 2000);
+            } else if (isDeleting
