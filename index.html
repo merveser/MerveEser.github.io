@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --background: #f4f6fa;
+      --background-overlay: rgba(255, 255, 255, 0.85);
       --text-dark: #1f2937;
       --text-muted: #6b7280;
       --accent: #2563eb;
@@ -24,9 +24,26 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--background);
       color: var(--text-dark);
       line-height: 1.6;
+      background: url('images/monet-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: var(--background-overlay);
+      z-index: 0;
+    }
+
+    nav, section {
+      position: relative;
+      z-index: 1;
     }
 
     nav {
@@ -39,7 +56,7 @@
       display: flex;
       justify-content: flex-end;
       gap: 1rem;
-      z-index: 100;
+      z-index: 10;
     }
 
     nav a {
@@ -128,7 +145,7 @@
     }
 
     .skill-tag {
-      background: var(--background);
+      background: var(--background-overlay);
       border: 1px solid var(--border);
       padding: 0.25rem 0.75rem;
       border-radius: 999px;
@@ -190,7 +207,7 @@
   </style>
 </head>
 <body>
-  <!-- Navigation -->
+   <!-- Navigation -->
   <nav>
     <a href="#home">Home</a>
     <a href="#skills">Skills</a>
@@ -445,5 +462,6 @@
         // Start typing effect after initial animation
         setTimeout(typeEffect, 3000);
     </script>
+
 </body>
 </html>
