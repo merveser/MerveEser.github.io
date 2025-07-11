@@ -657,6 +657,262 @@
         }
     </style>
 </head>
-<!-- Body content remains the same as in the original file -->
-<!-- [Original body content would go here - keeping as comment to avoid length limits] -->
+<body>
+   <!-- Navigation -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">MERVE ESER</h1>
+            <p class="hero-subtitle">Data Analysis | Business Intelligence | Data Science | Mathematics Graduate</p>
+            <p class="hero-description">
+                Mathematics graduate with 9 months of full-time Business Intelligence experience. 
+                Proven track record in designing financial dashboards, automating reports, and analyzing 
+                datasets for global markets. Skilled in SQL, Python, Tableau, and statistical analysis.
+            </p>
+            <a href="#contact" class="cta-button">Let's Connect</a>
+        </div>
+        
+        <!-- Floating Data Visualization -->
+        <div class="data-viz">
+            <div class="chart-bars">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2 class="section-title fade-in">Technical Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card fade-in">
+                <span class="skill-icon">🐍</span>
+                <h3 class="skill-title">Programming & Analysis</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">NumPy</span>
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                </div>
+            </div>
+
+            <div class="skill-card fade-in">
+                <span class="skill-icon">📊</span>
+                <h3 class="skill-title">Data Visualization</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Tableau</span>
+                    <span class="skill-tag">Power BI</span>
+                    <span class="skill-tag">Matplotlib</span>
+                    <span class="skill-tag">Seaborn</span>
+                </div>
+            </div>
+
+            <div class="skill-card fade-in">
+                <span class="skill-icon">🗄️</span>
+                <h3 class="skill-title">Database Management</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">SQL Server</span>
+                    <span class="skill-tag">ETL Processes</span>
+                </div>
+            </div>
+
+            <div class="skill-card fade-in">
+                <span class="skill-icon">🤖</span>
+                <h3 class="skill-title">Statistical Analysis</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Regression Analysis</span>
+                    <span class="skill-tag">Classification</span>
+                    <span class="skill-tag">Clustering</span>
+                    <span class="skill-tag">Hypothesis Testing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <h2 class="section-title fade-in">Professional Journey</h2>
+        <div class="experience-timeline">
+            <div class="timeline-line"></div>
+            
+            <div class="experience-item fade-in">
+                <div class="experience-content">
+                    <h3 class="job-title">Project Management Intern</h3>
+                    <p class="company">SCA Social</p>
+                    <span class="duration">June 2025 - July 2025</span>
+                    <p>Completing intensive 5-week certification in project management, AI & Data Science, organizational development, and IT law. Creating professional portfolio with project charter, Gantt chart, organizational framework, and AI-based solution.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="experience-item fade-in">
+                <div class="experience-content">
+                    <h3 class="job-title">Business Intelligence Intern → Analyst</h3>
+                    <p class="company">Trive Technology</p>
+                    <span class="duration">July 2024 - March 2025</span>
+                    <p>Designed, developed, and managed financial Tableau reports for global markets including Indonesia and Europe. Created and optimized data sources using Tableau Prep. Automated manually run reports, reducing turnaround time for critical data deliverables. Collaborated with cross-functional teams to translate business requirements into data-driven solutions.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2 class="section-title fade-in">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <h3 class="project-title">🎬 IMDB Movie Recommendation System</h3>
+                <p class="project-tech">Python • Scikit-learn • Pandas • TF-IDF • Cosine Similarity</p>
+                <p>Harvard CS50 Python final project featuring comprehensive movie recommendation system analyzing IMDB Top 1000 movies dataset. Implemented content-based filtering using TF-IDF vectorization for genre, cast, director, and plot similarities with interactive menu system.</p>
+                <a href="https://github.com/merveser/Movie-Recommendation-System" class="project-link">
+                    View Project →
+                </a>
+            </div>
+
+            <div class="project-card fade-in">
+                <h3 class="project-title">🚗 UK Traffic Accident Analysis</h3>
+                <p class="project-tech">Python • Pandas • Seaborn • Matplotlib • ARIMA Time Series</p>
+                <p>Analyzed 1.6+ million UK traffic accident records to uncover patterns and identify risk factors. Performed comprehensive statistical analysis comparing urban vs rural accident patterns. Implemented ARIMA forecasting model to predict future accident trends and seasonal peaks.</p>
+                <a href="https://github.com/merveser/Traffic-Accident-Analysis" class="project-link">
+                    View Project →
+                </a>
+            </div>
+
+            <div class="project-card fade-in">
+                <h3 class="project-title">✈️ Airline Passenger Satisfaction Analysis</h3>
+                <p class="project-tech">Python • Pandas • NumPy • Matplotlib • Seaborn • Statistical Analysis</p>
+                <p>Conducted comprehensive analysis of 130K+ passenger satisfaction survey responses. Performed demographic analysis, service quality assessment, and correlation analysis. Identified key satisfaction drivers and developed strategic recommendations for service improvements.</p>
+                <a href="https://github.com/merveser/Airline-Passenger-Satisfaction" class="project-link">
+                    View Project →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2 class="section-title fade-in">Let's Connect</h2>
+        <div class="contact-grid">
+            <div class="contact-item fade-in">
+                <span class="contact-icon">📧</span>
+                <h3>Email</h3>
+                <a href="mailto:merveserr1@gmail.com">merveserr1@gmail.com</a>
+            </div>
+
+            <div class="contact-item fade-in">
+                <span class="contact-icon">💼</span>
+                <h3>LinkedIn</h3>
+                <a href="https://linkedin.com/in/merveser" target="_blank">linkedin.com/in/merveser</a>
+            </div>
+
+            <div class="contact-item fade-in">
+                <span class="contact-icon">🔗</span>
+                <h3>GitHub</h3>
+                <a href="https://github.com/merveser" target="_blank">github.com/merveser</a>
+            </div>
+
+            <div class="contact-item fade-in">
+                <span class="contact-icon">🌐</span>
+                <h3>Portfolio</h3>
+                <a href="https://merveser.github.io/MerveEser.github.io/" target="_blank">merveser.github.io</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Dynamic typing effect for hero subtitle
+        const subtitle = document.querySelector('.hero-subtitle');
+        const roles = [
+            'Data Analysis | Business Intelligence | Data Science | Mathematics Graduate',
+            'Business Intelligence Analyst | Tableau Expert',
+            'Python Developer | SQL Specialist',
+            'Statistical Analyst | Problem Solver'
+        ];
+        
+        let currentRole = 0;
+        let currentChar = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            const current = roles[currentRole];
+            
+            if (isDeleting) {
+                subtitle.textContent = current.substring(0, currentChar - 1);
+                currentChar--;
+            } else {
+                subtitle.textContent = current.substring(0, currentChar + 1);
+                currentChar++;
+            }
+
+            if (!isDeleting && currentChar === current.length) {
+                isDeleting = true;
+                setTimeout(typeEffect, 2000);
+            } else if (isDeleting && currentChar === 0) {
+                isDeleting = false;
+                currentRole = (currentRole + 1) % roles.length;
+                setTimeout(typeEffect, 500);
+            } else {
+                setTimeout(typeEffect, isDeleting ? 50 : 100);
+            }
+        }
+
+        // Start typing effect after initial animation
+        setTimeout(typeEffect, 3000);
+    </script>
+
+</body>
 </html>
